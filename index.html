@@ -75,6 +75,7 @@
         accounts.forEach(function(account) {
           console.log(account);
           var $accountEntry = $(".pk-template").clone();
+          $accountEntry.removeClass("pk-template");
 
           $("input[name='address']", $accountEntry).val(account.addr);
           $("input[name='private-key']", $accountEntry).val(account.pk);
