@@ -24,7 +24,7 @@
     </div>
     <div class="row justify-content-center mb-2">
       <div class="col-md-6 col-lg-5 text-align center">
-        <a class="btn btn-primary btn-lg btn-block" href="https://forkdelta.app">Go to Trading &rarr;</a>
+        <a class="btn btn-primary btn-lg btn-block go-to-trading" href="https://forkdelta.app">Go to Trading &rarr;</a>
       </div>
     </div>
     <div class="py-2 text-center">
@@ -67,13 +67,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js" integrity="sha256-hIvIxeqhGZF+VVeM55k0mJvWpQ6gTkWk3Emc+NmowYA=" crossorigin="anonymous"></script>
   <script>
     $(function () {
+      var currentLocation = document.location.toString();
+      $(".go-to-trading").attr("href", currentLocation.replace("forkdelta.github.io", "forkdelta.app"));
+
       var settingsJSON = localStorage.getItem("EtherDelta");
       var settingsObject = JSON.parse(settingsJSON);
       var accounts = settingsObject && settingsObject.accounts ? settingsObject.accounts.filter(function (e) { return e.pk; }) : [];
       if (accounts.length > 0) {
         var $list = $("ul.accounts-list");
         accounts.forEach(function(account) {
-          console.log(account);
           var $accountEntry = $(".pk-template").clone();
           $accountEntry.removeClass("pk-template");
 
@@ -86,8 +88,6 @@
         $(".accounts-list").hide();
         $(".no-accounts").show();
       }
-
-      console.log(settingsObject.accounts);
 
       $("button.pk-revealer").on("click", function () {
         var $this = $(this);
