@@ -81,6 +81,7 @@
 
           $("input[name='address']", $accountEntry).val(account.addr);
           $("input[name='private-key']", $accountEntry).val(account.pk);
+          $(".pk-copier", $accountEntry).attr("data-clipboard-text", account.pk);
           $list.append($accountEntry);
           $accountEntry.show();
         });
