@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: forkdelta.github.io
+Token: 338b5e3de19a9c54c25ff4807a0db69301a547c0384d242876fbf4e880fb74cf
